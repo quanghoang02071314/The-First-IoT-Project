@@ -52,7 +52,7 @@ humi = 50
 light_intesity = 100
 counter = 0
 
-g = geocoder.ip('me') # Return a list [<latitude>, <longtitude>] base on IP of this pic
+g = geocoder.ip('me') # Return a list [<latitude>, <longtitude>] base on IP of this pc
 latitude= g.latlng[0]
 longitude = g.latlng[1]
 
