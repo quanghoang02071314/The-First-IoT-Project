@@ -4,6 +4,8 @@ import paho.mqtt.client as mqttclient
 import time
 import json
 import random 
+
+# Using geocoder library to get the coordinate of the device base on IP
 import geocoder  
 
 BROKER_ADDRESS = "demo.thingsboard.io"
@@ -50,7 +52,7 @@ humi = 50
 light_intesity = 100
 counter = 0
 
-g = geocoder.ip('me')
+g = geocoder.ip('me') # Return a list [<latitude>, <longtitude>] base on IP of this pic
 latitude= g.latlng[0]
 longitude = g.latlng[1]
 
