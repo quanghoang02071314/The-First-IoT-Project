@@ -51,10 +51,8 @@ temp = 30
 humi = 50
 light_intesity = 100
 counter = 0
-
-g = geocoder.ip('me') # Return a list [<latitude>, <longtitude>] base on IP of this pc
-latitude= g.latlng[0]
-longitude = g.latlng[1]
+latitude = 0
+longitude = 0
 
 while True:
     collect_data = {
@@ -68,5 +66,8 @@ while True:
     temp += random.randrange(-3,3)
     humi += random.randrange(-4,4)
     light_intesity += random.randrange(-2,2)
+    g = geocoder.ip('me') # Return a list [<latitude>, <longtitude>] base on IP of this pc
+    latitude = g.latlng[0]
+    longitude = g.latlng[1]
     client.publish('v1/devices/me/telemetry', json.dumps(collect_data), 1)
     time.sleep(10)
